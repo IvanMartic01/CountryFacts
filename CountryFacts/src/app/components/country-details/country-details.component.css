@@ -1,0 +1,154 @@
+:host {
+    display: grid;
+    grid-template-rows: 120px auto;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.header {
+    display: grid;
+    align-items: center;
+}
+
+.header-title {
+    font-size: 30px;
+    margin: 0 25px 0 50px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.header-title a {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: black;
+}
+
+.header-image {
+    margin-left: 10px;
+    height: 70px;
+}
+
+.flags-container {
+    height: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.flag {
+    height: 50%;
+    margin: 0 20px;
+}
+
+.flag:hover {
+    cursor: pointer;
+}
+
+.selected-flag {
+    height: 90%;
+    margin: 0 20px;
+}
+
+.navigation-buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: none;
+}
+
+.navigation-buttons button {
+    font-size: 5vw;
+    width: 8vw;
+    margin: 15px 10px;
+    background-color: white;
+    color: #15657D;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 5px 5px 10px rgb(37, 37, 37);
+}
+
+.navigation-buttons button:hover {
+    cursor: pointer;
+    background-color: rgb(220, 220, 220);
+}
+
+.content {
+    background: linear-gradient(to right, #15657D, #aae4f6);
+    width: 100vw;
+}
+
+@media screen and (max-width: 500px) {
+    
+    :host {
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .header-title {
+        font-size: 6vw;
+        justify-content: center;
+    }
+
+    .flags-container {
+        margin: 10px;
+        width: 90%;
+        flex-direction: column;
+    }
+
+    .flag {
+        width: 50%;
+        margin: 5px 20px;
+    }
+
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navigation-buttons button {
+        width: 25vw;
+        margin: 10px 20px;
+    }
+}
+
+
+@media screen and (max-width: 800px) and (min-width: 500px) {
+
+    :host {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .header-title {
+        justify-content: center;
+    }
+
+    .flags-container {
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navigation-buttons button {
+        width: 25vw;
+        margin: 20px 30px;
+    }
+
+}

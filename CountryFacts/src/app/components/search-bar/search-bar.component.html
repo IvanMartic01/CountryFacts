@@ -1,0 +1,30 @@
+<form [style.border-width] = "borderWidth" #f="ngForm" (ngSubmit) = "onSubmit()" novalidate id="search-bar">
+    <select #type (change)="changeTheSearch(type.value)">
+        <option value = "name">Name</option>
+        <option value = "currency">Currency</option>
+        <option value = "capitalCity">Capital city</option>
+        <option value = "continent">Continent</option>
+    </select>   
+    <div class="relative">
+        <input (focus)="highlight()" autocomplete="off" id="my-input" (blur) = "deHighlight()" name="search" type="text" [formControl] = "control" >
+        <div class = "absolute autofill" [ngStyle]="{'opacity': autofillOpacity, 'display': autofillDisplay}">
+            <div class="autofill-option" (click) = "selectAutofill(option)" *ngFor="let option of filteredOptions | async">
+                {{option}}
+            </div>
+        </div>
+    </div>
+    <button type="submit"><img src="assets/images/magnifier.png"></button>
+</form>
+
+<div id="filter-by-continent">
+    <p id="filter-label">Filter by continent:</p>
+    <div (click) = "changeActiveFilter('Europe')" class="continent" [ngClass] = "{'active': activeFilter == 'Europe'}">Europe</div>
+    <div (click) = "changeActiveFilter('North America')" class="continent" [ngClass] = "{'active': activeFilter == 'North America'}">North America</div>
+    <div (click) = "changeActiveFilter('South America')" class="continent" [ngClass] = "{'active': activeFilter == 'South America'}">South America</div>
+    <div (click) = "changeActiveFilter('Asia')" class="continent" [ngClass] = "{'active': activeFilter == 'Asia'}">Asia</div>
+    <div (click) = "changeActiveFilter('Oceania')" class="continent" [ngClass] = "{'active': activeFilter == 'Oceania'}">Oceania</div>
+    <div (click) = "changeActiveFilter('Africa')" class="continent" [ngClass] = "{'active': activeFilter == 'Africa'}">Africa</div>
+    <div (click) = "changeActiveFilter('Antarctica')" class="continent wide" [ngClass] = "{'active': activeFilter == 'Antarctica'}">Antarctica</div>
+</div>
+
+<div *ngIf="countries != []" ></div>
